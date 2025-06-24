@@ -120,4 +120,4 @@ def handle_chat(data):
             break
 
 if __name__ == '__main__':
-    socketio.run(app, port=10000)
+    socketio.run(app, host="0.0.0.0", port=10000)
