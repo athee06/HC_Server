@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request
 from flask_socketio import SocketIO, emit, join_room, leave_room
 import random
@@ -258,4 +259,5 @@ def handle_chat(data):
         emit('chat', {'from': players[sid]['name'], 'msg': msg}, to=room_id)
 
 if __name__ == '__main__':
-    socketio.run(app, port=10000)
+    port = int(os.environ.get("PORT", 10000))
+    socketio.run(app, host="0.0.0.0", port=port)
